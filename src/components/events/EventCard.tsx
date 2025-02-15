@@ -2,8 +2,8 @@ import React from "react";
 
 export default function EventCard({ children }: React.PropsWithChildren<{}>) {
   return (
-    <div className=" flex items-center justify-center py-12">
-      <div className=" rounded-[40px] bg-[#041E23] p-12 border border-[#0E464F] z-10 ">
+    <div className=" max-w-2xl mx-auto z-10 py-12 ">
+      <div className=" rounded-[40px] bg-[#041E23] p-6 md:p-9 lg:p-12 border border-[#0E464F] z-[100]  ">
         {/* card header */}
         <div className=" mb-8">
           <div className=" pb-3 flex items-center justify-between">

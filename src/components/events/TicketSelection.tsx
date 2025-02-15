@@ -5,24 +5,6 @@ export default function TicketSelection() {
   return (
     <form className=" bg-[#08252B] border border-[#0E464F] p-6 rounded-[32px] text-[#FAFAFA]">
       {/* form header */}
-      {/* <div
-        classNameName=" mb-8 bg-[#08252B] border-2 border-t-0 border-[#0E464F] p-6 rounded-[24px]"
-        style={{
-          background:
-            "radial-gradient(20% 100% at 20%, rgba(36, 160, 181, 0.2) 0%, rgba(36, 160, 181, 0) 200%), rgba(10, 12, 17, 0.1)",
-        }}
-      >
-        <h1 className=" text-[62px] text-[#FAFAFA]   font-RoadRage">
-          Techember Fest ”25
-        </h1>
-        <p>
-          Join us for an unforgettable experience at [Event Name]! Secure your
-          spot now.
-        </p>
-      </div> */}
-
-      {/* form header */}
-
       <div className="relative overflow-hidden border-2 border-top-0  border-[#0E464F]  bg-[#0A0C11]/10 rounded-3xl p-6">
         <div className="absolute top-0 left-0 w-full h-[30vh] bg-[radial-gradient(ellipse_at_top_left,rgba(36,160,181,0.3)_0%,rgba(36,160,181,0)_70%)]"></div>
         <div className="flex flex-col gap-3 mx-auto text-center justify-center items-center ">

@@ -5,7 +5,7 @@
 
 @layer base {
   .wrapper {
-    @apply px-[120px];
+    @apply px-10 md:px-20 lg:px-[120px];
   }
 
   body {

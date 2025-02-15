@@ -12,7 +12,7 @@ export default function navbar() {
         </div>
 
         {/* nav links */}
-        <div>
+        <div className=" hidden md:block">
           <ul className=" flex  items-center space-x-4 font-Nanum ">
             <li className=" ">
               <a href="#" className="p-2 text-white">

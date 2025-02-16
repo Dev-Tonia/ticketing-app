@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Road+Rage&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alatsi&family=Nanum+Myeongjo&family=Road+Rage&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,37 +11,4 @@
   body {
     @apply font-Nanum;
   }
-}
-.ticket-ready {
-  @apply before:content-['']
-  before:w-8
-  before:h-8
-  before:bg-[#041E23]
-  before:border
-  before:border-[#07373F]
-  before:border-t-transparent
-  before:border-l-transparent
-  before:border-r-transparent
-  before:absolute
-  before:-rotate-45
-  before:left-[-17px]
-  before:top-[-2.2px]
-  before:mt-[-12.5px]
-  before:rounded-full
-  /* after starts here */
-  after:content-['']
-  after:w-8
-  after:h-8
-  after:bg-[#041E23]
-  after:border
-  after:border-[#07373F]
-  after:border-t-transparent
-  after:border-l-transparent
-  after:border-r-transparent
-  after:absolute
-  after:rotate-45
-  after:right-[-17px]
-  after:top-[-2.2px]
-  after:mt-[-12.5px]
-  after:rounded-full;
 }

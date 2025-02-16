@@ -7,6 +7,7 @@ export default {
         Nanum: ["Nanum Myeongjo", "serif"],
         Roboto: ["Roboto", "serif"],
         RoadRage: ["Road Rage", "serif"],
+        Alatsi: ["Alatsi", "serif"],
       },
     },
   },

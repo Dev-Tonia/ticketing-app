@@ -1,6 +1,5 @@
 import React from "react";
-import Elapses from "./Elapses";
-import Barcode from "./barcode";
+import Barcode from "./Barcode";
 import Separator from "./Separator";
 
 export default function TicketReady() {

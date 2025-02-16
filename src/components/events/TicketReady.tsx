@@ -99,7 +99,9 @@ export default function TicketReady() {
         </div>
         {/* separators */}
         <div className="flex gap-1 justify-center">
-          {Array(30).fill(<Separator />)}
+          {Array.from({ length: 30 }, (_, index) => (
+            <Separator key={index} />
+          ))}
         </div>
         {/* Barcode */}
         <div className="relative p-5">

@@ -1,9 +1,20 @@
 import React from "react";
 import TicketTypeCard from "./TicketTypeCard";
+interface Props {
+  nextStep: () => void;
+}
+export default function TicketSelection({ nextStep }: Props) {
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault(); // Prevent the default form submission behavior
+    nextStep(); // Call the nextStep function
+    // console.log("hello word of react ");
+  }
 
-export default function TicketSelection() {
   return (
-    <form className=" bg-[#08252B] border border-[#0E464F] p-6 rounded-[32px] text-[#FAFAFA]">
+    <form
+      className=" bg-[#08252B] border border-[#0E464F] z-10 p-6 rounded-[32px] text-[#FAFAFA]"
+      onSubmit={handleSubmit}
+    >
       {/* form header */}
       <div className="relative overflow-hidden border-2 border-top-0  border-[#0E464F]  bg-[#0A0C11]/10 rounded-3xl p-6">
         <div className="absolute top-0 left-0 w-full h-[30vh] bg-[radial-gradient(ellipse_at_top_left,rgba(36,160,181,0.3)_0%,rgba(36,160,181,0)_70%)]"></div>
@@ -69,7 +80,8 @@ export default function TicketSelection() {
           className=" p-3 rounded-xl w-full bg-[#08252B]  border border-[#07373F] text-white focus:outline-none focus:ring-0"
           id=""
         >
-          <option value="1" className="text-green-500 hover:bg-[#07373F]">
+          <option value="">Select Number of Tickets</option>
+          <option value="1" className="">
             1
           </option>
           <option value="2">2</option>
@@ -81,11 +93,14 @@ export default function TicketSelection() {
 
       {/* button section */}
 
-      <div className="flex flex-col-reverse md:flex-row gap-3 mt-8 font-Nanum">
-        <button className="px-6 w-full py-3 rounded-lg border border-[#24A0B5] text-[#24A0B5] hover:bg-primary/40 transition-colors whitespace-nowrap">
+      <div className="flex flex-col-reverse md:flex-row gap-3 mt-8 font-Nanum z-30">
+        <button className="px-6 w-full py-3 rounded-lg border border-[#24A0B5] cursor-pointer text-[#24A0B5] hover:bg-primary/40 transition-colors whitespace-nowrap">
           Cancel
         </button>
-        <button className="px-6 w-full py-3 rounded-lg bg-[#24A0B5]  text-white transition-colors whitespace-nowrap">
+        <button
+          className="px-6 w-full py-3 rounded-lg bg-[#24A0B5] cursor-pointer  text-white transition-colors whitespace-nowrap"
+          type="submit"
+        >
           Next
         </button>
       </div>

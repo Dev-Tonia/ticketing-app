@@ -1,9 +1,20 @@
 import React from "react";
 import FileUpload from "./FileUpload";
-
-export default function AttendeeDetail() {
+interface Props {
+  nextStep: () => void;
+  preStep: () => void;
+}
+export default function AttendeeDetail({ nextStep, preStep }: Props) {
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault(); // Prevent the default form submission behavior
+    nextStep(); // Call the nextStep function
+    // console.log("hello word of react ");
+  }
   return (
-    <form className=" bg-[#08252B] border border-[#0E464F] p-6 rounded-[32px] text-[#FAFAFA]  ">
+    <form
+      className=" bg-[#08252B] border border-[#0E464F] p-6 rounded-[32px] text-[#FAFAFA] "
+      onSubmit={handleSubmit}
+    >
       <div className=" bg-[#052228] border border-[#07373F] rounded-3xl pt-6 px-6 pb-12 relative">
         <h6 className="  font-Roboto mb-3 ">Upload Profile Picture</h6>
         <div className="bg-black/20 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center h-[150px] w-[90%] mx-auto" />
@@ -55,10 +66,17 @@ export default function AttendeeDetail() {
       {/* button section */}
 
       <div className="flex flex-col-reverse md:flex-row gap-3 mt-8 font-Nanum">
-        <button className="px-6 w-full py-3 rounded-lg border border-[#24A0B5] text-[#24A0B5] hover:bg-primary/40 transition-colors whitespace-nowrap">
+        <button
+          type="button"
+          onClick={preStep}
+          className="px-6 w-full py-3 rounded-lg border border-[#24A0B5] text-[#24A0B5] hover:bg-primary/40 transition-colors whitespace-nowrap"
+        >
           Back
         </button>
-        <button className="px-6 w-full py-3 rounded-lg bg-[#24A0B5]  text-white transition-colors whitespace-nowrap">
+        <button
+          className="px-6 w-full py-3  rounded-lg bg-[#24A0B5]  text-white transition-colors whitespace-nowrap"
+          type="submit"
+        >
           Get Free Ticket
         </button>
       </div>

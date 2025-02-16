@@ -116,6 +116,20 @@ export default function TicketReady() {
           </>
         </div>
       </div>
+      <div className="flex flex-col-reverse md:flex-row gap-3 mt-8 font-Nanum">
+        <button
+          type="button"
+          className="px-6 w-full py-3 rounded-lg border border-[#24A0B5] text-[#24A0B5] hover:bg-primary/40 transition-colors whitespace-nowrap"
+        >
+          Book Another Ticket
+        </button>
+        <button
+          className="px-6 w-full py-3  rounded-lg bg-[#24A0B5]  text-white transition-colors whitespace-nowrap"
+          type="submit"
+        >
+          Download Ticket
+        </button>
+      </div>
     </div>
   );
 }

@@ -1,14 +1,60 @@
-import React from "react";
+import React, { useState } from "react";
 import TicketTypeCard from "./TicketTypeCard";
 interface Props {
   nextStep: () => void;
 }
 export default function TicketSelection({ nextStep }: Props) {
+  // form data
+  const [formData, setFormData] = useState({
+    ticketType: "",
+    numberOfTickets: "",
+  });
+  // set error state
+  const [error, setError] = useState({
+    ticketType: false,
+    numberOfTickets: false,
+  });
+  // get the card clicked
+  function selectTicketType(type: string) {
+    setFormData({ ...formData, ticketType: type });
+  }
+
+  // handle input change
+  function handleChange(e: React.ChangeEvent<HTMLSelectElement>) {
+    setFormData({ ...formData, numberOfTickets: e.target.value });
+    console.log(formData);
+  }
+
+  // handle form submit
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault(); // Prevent the default form submission behavior
-    nextStep(); // Call the nextStep function
-    // console.log("hello word of react ");
+
+    // validation
+
+    if (formData.ticketType.trim() === "") {
+      setError({ ...error, ticketType: true });
+      return;
+    }
+
+    if (formData.numberOfTickets.trim() === "") {
+      setError({ ...error, numberOfTickets: true });
+      return;
+    }
+    nextStep();
   }
+
+  // rest the form data
+  function resetFormData() {
+    setFormData({ ticketType: "", numberOfTickets: "" });
+    setError({ ticketType: false, numberOfTickets: false });
+  }
+
+  // ticket types
+  const ticketTypes = [
+    { price: "Free", description: " Regular Access", quantity: "08/50" },
+    { price: "$50", description: "VIP Access", quantity: "08/50" },
+    { price: "$150", description: "VVIP Access", quantity: "08/50" },
+  ];
 
   return (
     <form
@@ -44,28 +90,22 @@ export default function TicketSelection({ nextStep }: Props) {
         <h3 className="mb-3">Select Ticket Type:</h3>
         <div className="p-4 rounded-3xl border border-[#07373F] bg-[#052228]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <TicketTypeCard
-              data={{
-                price: "Free",
-                description: "Regular Access",
-                quantity: " 08/50",
-              }}
-            />{" "}
-            <TicketTypeCard
-              data={{
-                price: "$50",
-                description: "VIP Access",
-                quantity: " 08/50",
-              }}
-            />
-            <TicketTypeCard
-              data={{
-                price: "$150",
-                description: "VVIP Access",
-                quantity: " 08/50",
-              }}
-            />
+            {ticketTypes.map((ticketType) => (
+              <TicketTypeCard
+                data={{
+                  price: ticketType.price,
+                  description: ticketType.description,
+                  quantity: ticketType.quantity,
+                }}
+                onSelect={() => selectTicketType(ticketType.description)}
+                isSelected={formData.ticketType}
+                key={ticketType.description}
+              />
+            ))}
           </div>
+          {error.ticketType && (
+            <p className="text-red-500">Please select a ticket type</p>
+          )}
         </div>
       </div>
 
@@ -76,6 +116,7 @@ export default function TicketSelection({ nextStep }: Props) {
           Number of Tickets
         </label>
         <select
+          onChange={handleChange}
           name="number-of-ticket"
           className=" p-3 rounded-xl w-full bg-[#08252B]  border border-[#07373F] text-white focus:outline-none focus:ring-0"
           id=""
@@ -89,12 +130,18 @@ export default function TicketSelection({ nextStep }: Props) {
           <option value="4">4</option>
           <option value="5">5</option>
         </select>
+        {error.numberOfTickets && (
+          <p className="text-red-500">Please select a number of tickets</p>
+        )}
       </div>
 
       {/* button section */}
 
       <div className="flex flex-col-reverse md:flex-row gap-3 mt-8 font-Nanum z-30">
-        <button className="px-6 w-full py-3 rounded-lg border border-[#24A0B5] cursor-pointer text-[#24A0B5] hover:bg-primary/40 transition-colors whitespace-nowrap">
+        <button
+          onClick={resetFormData}
+          className="px-6 w-full py-3 rounded-lg border border-[#24A0B5] cursor-pointer text-[#24A0B5] hover:bg-primary/40 transition-colors whitespace-nowrap"
+        >
           Cancel
         </button>
         <button

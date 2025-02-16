@@ -4,7 +4,7 @@ import Separator from "./Separator";
 
 export default function TicketReady() {
   return (
-    <div className=" bg-transparent overflow-hidden font-Roboto mx-auto max-w-[320px]">
+    <div className=" bg-transparent overflow-hidden font-Roboto mx-auto max-w-[400px]">
       {/* heading  */}
       <div className=" text-white py-8 text-center">
         <h3 className="pb-4 text-2xl font-Alatsi md:text-3xl">
@@ -99,7 +99,7 @@ export default function TicketReady() {
         </div>
         {/* separators */}
         <div className="flex gap-1 justify-center">
-          {Array(18).fill(<Separator />)}
+          {Array(30).fill(<Separator />)}
         </div>
         {/* Barcode */}
         <div className="relative p-5">
